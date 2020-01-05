@@ -160,10 +160,6 @@ $(document).keydown(function(event){
     }
 });
 
-$("body").bind("touchmove",function(event){
-       event.preventDefault();
-});
-
 document.addEventListener('touchstart',function(event){
     startX=event.touches[0].pageX;
     startY=event.touches[0].pageY;
