@@ -160,8 +160,7 @@ $(document).keydown(function(event){
     }
 });
 
-document.querySelector("body").addEventListener('touchstart',function(event){
-    event.preventDefault();  
+document.addEventListener('touchstart',function(event){
     startX=event.touches[0].pageX;
     startY=event.touches[0].pageY;
 });
