@@ -192,13 +192,13 @@ document.addEventListener('touchend',function(event){
     }
     else{
         if(deltaY<0){
-            event.preventDefault();
             if(moveUp()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
             }
         }
         else{
+            event.preventDefault();
             if(moveDown()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
