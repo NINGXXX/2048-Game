@@ -13,6 +13,11 @@ $(document).ready(function () {
 });
 
 function prepareForMobile() {
+    if(documentWidth>500){
+        gridContainerWidth=500;
+        cellSpace=20;
+        cellSideLength=100;
+    }
 
     $("#grid-container").css('width',gridContainerWidth-2*cellSpace);
     $("#grid-container").css('height',gridContainerWidth-2*cellSpace);
@@ -155,7 +160,8 @@ $(document).keydown(function(event){
     }
 });
 
-document.addEventListener('touchstart',function(event){
+document.querySelector("body").addEventListener('touchstart',function(event){
+    event.preventDefault();  
     startX=event.touches[0].pageX;
     startY=event.touches[0].pageY;
 });
@@ -173,14 +179,12 @@ document.addEventListener('touchend',function(event){
     if(Math.abs((deltaX))>=Math.abs(deltaY)) {
         if(deltaX>0){
             //move right
-            event.preventDefault();
             if(moveRight()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
             }
         }
         else{
-            event.preventDefault();
             if(moveLeft()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
@@ -189,14 +193,12 @@ document.addEventListener('touchend',function(event){
     }
     else{
         if(deltaY<0){
-            event.preventDefault();
             if(moveUp()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
             }
         }
         else{
-            event.preventDefault();
             if(moveDown()){
                 setTimeout("generateOneNumber()",210);
                 setTimeout("isgameOver()",300);
